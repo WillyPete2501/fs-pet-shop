@@ -99,7 +99,7 @@ app.patch('/pets/:id', (req, res) => {
 app.delete('/pets/:id', (req, res) => {
     const id = req.params.id;
     fs.readFile('./pets.json', 'utf-8', (err, data) => {
-      let parsedData = JSON.parse(data);
+      let parsedData = JSON.parse(data); // valid JS object
       parsedData.splice(id, 1)
       let JSONdata = JSON.stringify(parsedData)
       fs.writeFile('./pets.json', JSONdata, 'utf-8', (err) => {
